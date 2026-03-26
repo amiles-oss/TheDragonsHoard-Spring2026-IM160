@@ -1,3 +1,11 @@
+/*****************************************************************************
+// File Name : StoneController.cs
+// Author : Alan Miles
+// Creation Date : March 25, 2026
+//
+// Brief Description : Changes the color of the stones, lifts them, and 
+                       controls the lava
+******************************************************************************/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,7 +26,9 @@ public class StoneController : MonoBehaviour
     private Vector3 origPos;
     private Vector3 lpos;
     private Vector3 origLPos;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    /// <summary>
+    /// Set Variables and call the TilesClock coroutine so tiles will work properly
+    /// </summary>
     void Start()
     {
         //Height calculates how high each thing needs to lift
@@ -33,6 +43,10 @@ public class StoneController : MonoBehaviour
         StartCoroutine(TilesClock());
     }
 
+    /// <summary>
+    /// Makes tiles change color and raise up to protect from the lava that this script also raises
+    /// </summary>
+    /// <returns></returns>
     IEnumerator TilesClock()
     {
         while (true)
@@ -70,11 +84,5 @@ public class StoneController : MonoBehaviour
                 yield return new WaitForSeconds(sec * 3 + 1);
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

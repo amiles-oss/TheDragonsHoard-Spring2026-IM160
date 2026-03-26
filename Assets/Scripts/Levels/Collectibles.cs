@@ -1,3 +1,10 @@
+/*****************************************************************************
+// File Name : Collectibles.cs
+// Author : Alan Miles
+// Creation Date : March 25, 2026
+//
+// Brief Description : Allows the player to collect gemstones
+******************************************************************************/
 using UnityEngine;
 
 public class Collectibles : MonoBehaviour
@@ -8,12 +15,10 @@ public class Collectibles : MonoBehaviour
     public int GemCount { get => gemCount; set => gemCount = value; }
     public int GemGoal { get => gemGoal; set => gemGoal = value; }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
+    /// <summary>
+    /// Makes gems collectible
+    /// </summary>
+    /// <param name="triggerObject"></param>
     private void OnTriggerEnter(Collider triggerObject)
     {
         if (triggerObject.gameObject.CompareTag("Gem"))
@@ -21,11 +26,5 @@ public class Collectibles : MonoBehaviour
             gemCount++;
             Destroy(triggerObject.gameObject);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
