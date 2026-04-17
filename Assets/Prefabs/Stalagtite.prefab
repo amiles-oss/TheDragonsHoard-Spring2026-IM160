@@ -139,5 +139,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   materials:
-  - {fileID: 2100000, guid: 5f04d389e7b7cb2408c41a399eebf3be, type: 2}
-  - {fileID: 2100000, guid: 76fa93cb6d4b146469d85fcebae84eb7, type: 2}
+  - {fileID: 2100000, guid: d9a95648e82caa7459f1106df0da4af2, type: 2}
+  - {fileID: 2100000, guid: de88005d1f5e1554494e69b81da77235, type: 2}
+  combined: 0
+  smoothness: 6
+  offset: 0.125

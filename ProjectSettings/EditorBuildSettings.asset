@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: 3fcdea0b950cecd4e9419b46bfebfd4c
+  - enabled: 1
     path: Assets/Scenes/DeathScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/HowToPlay.unity
+    guid: 6c42272a3e9af0b48b3e07ecca2d39e8
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: ba8c9bd715d6ae5449842d70b520d5f6
   - enabled: 1
     path: Assets/Scenes/LavaLevel1.unity
     guid: 2e5f65b69e3401e43be25a4838f170de
@@ -15,14 +24,11 @@ EditorBuildSettings:
     path: Assets/Scenes/CaveLevel1.unity
     guid: b81ce71af734fd94a8eb092e2f0ce7b0
   - enabled: 1
+    path: Assets/Scenes/ComLevel1.unity
+    guid: b4cdc1030bb99544da4ccf9731ae66d6
+  - enabled: 1
     path: Assets/Scenes/WinScene.unity
     guid: 964d9fbf4e840f840931e122bbb85cc0
-  - enabled: 1
-    path: Assets/Scenes/StartScene.unity
-    guid: 3fcdea0b950cecd4e9419b46bfebfd4c
-  - enabled: 1
-    path: Assets/Scenes/Tutorial.unity
-    guid: 6c42272a3e9af0b48b3e07ecca2d39e8
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -68,7 +68,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5f04d389e7b7cb2408c41a399eebf3be, type: 2}
+  - {fileID: 2100000, guid: d9a95648e82caa7459f1106df0da4af2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -123,11 +123,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2e0143f34454654ebd601f75040522c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  s: {fileID: 0}
   materials:
-  - {fileID: 2100000, guid: 5f04d389e7b7cb2408c41a399eebf3be, type: 2}
-  - {fileID: 2100000, guid: 389dacff643fe9e48bf6668848cab944, type: 2}
+  - {fileID: 2100000, guid: d9a95648e82caa7459f1106df0da4af2, type: 2}
+  - {fileID: 2100000, guid: 3f532fd3bc3865a47b05fffc3fe2b8f7, type: 2}
+  combined: 0
   r: {fileID: 4335473357013574536}
   lava: {fileID: 0}
+  smoothness: 6
+  gemSpot: 0
 --- !u!114 &3438438977510142188
 MonoBehaviour:
   m_ObjectHideFlags: 0

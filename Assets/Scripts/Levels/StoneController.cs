@@ -6,15 +6,22 @@
 // Brief Description : Changes the color of the stones, lifts them, and 
                        controls the lava
 ******************************************************************************/
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class StoneController : MonoBehaviour
 {
+    [SerializeField] private Stalagtites s;
     [SerializeField] private Material[] materials;
+    [SerializeField] private bool combined = false;
     [SerializeField] private Renderer r;
     [SerializeField] private GameObject lava;
+    [SerializeField] private int smoothness = 6;
+    [SerializeField] private bool gemSpot = false;
+    public event Action readyEvent;
+    private bool ready = false;
     private bool lift;
     private float height;
     private float lheight;
@@ -26,6 +33,10 @@ public class StoneController : MonoBehaviour
     private Vector3 origPos;
     private Vector3 lpos;
     private Vector3 origLPos;
+
+    //EncapsulateField so I can refrence ready in Stalagtites.cs
+    public bool Ready { get => ready; set => ready = value; }
+
     /// <summary>
     /// Set Variables and call the TilesClock coroutine so tiles will work properly
     /// </summary>
@@ -51,15 +62,23 @@ public class StoneController : MonoBehaviour
     {
         while (true)
         {
+            ready = false;
             //Checks if that particular stone will lift
-            liftCheck = Random.Range(0, 2);
+            liftCheck = UnityEngine.Random.Range(0, 2);
             if (liftCheck == 0)
             {
                 lift = true;
             }
             else
             {
-                lift = false;
+                if (gemSpot == true)
+                {
+                    lift = true;
+                }
+                else
+                {
+                    lift = false;
+                }
             }
             if (lift == true)
             {
@@ -68,20 +87,89 @@ public class StoneController : MonoBehaviour
                 r.material = materials[safeNum];
                 yield return new WaitForSeconds(sec);
                 //Change y value of tiles
-                transform.position = Vector3.MoveTowards(transform.position, pos, height);
+                for (int i = 0; i < smoothness;  i++)
+                {
+                    transform.position = Vector3.MoveTowards(transform.position, pos, height * 1f / smoothness);
+                    yield return new WaitForEndOfFrame();
+                }
                 r.material = materials[origNum];
                 yield return new WaitForSeconds(1);
                 //Change y value of lava
-                lava.transform.position = Vector3.MoveTowards(lava.transform.position, lpos, height);
+                for (int i = 0; i < smoothness; i++)
+                {
+                    lava.transform.position = 
+                        Vector3.MoveTowards(lava.transform.position, lpos, height * 1f / smoothness);
+                    yield return new WaitForEndOfFrame();
+                }
+                readyEvent?.Invoke();
+                ready = true;
+                while (ready)
+                {
+                    Debug.Log("While Ready");
+                    if (combined == false)
+                    {
+                        break;
+                    }
+                    yield return null;
+                }
                 yield return new WaitForSeconds(sec);
                 //Returns lava and tiles to their original positions
-                lava.transform.position = Vector3.MoveTowards(lava.transform.position, origLPos, height);
-                transform.position = Vector3.MoveTowards(transform.position, origPos, height);
+                for (int i = 0; i < smoothness; i++)
+                {
+                    lava.transform.position = 
+                        Vector3.MoveTowards(lava.transform.position, origLPos, height * 1 / smoothness);
+                    yield return new WaitForEndOfFrame();
+                }
+                for (int i = 0; i < smoothness; i++)
+                {
+                    transform.position = Vector3.MoveTowards(transform.position, origPos, height * 1f / smoothness);
+                    yield return new WaitForEndOfFrame();
+                }
             }
             else
             {
                 //If a tile doesn't raise, keep it on the same timer as the ones that raise
-                yield return new WaitForSeconds(sec * 3 + 1);
+                yield return new WaitForSeconds(sec);
+                yield return new WaitForSeconds(sec);
+                for (int i = 0; i < smoothness; i++)
+                {
+                    transform.position = 
+                        Vector3.MoveTowards(transform.position, transform.position, height * 1f / smoothness);
+                    yield return new WaitForEndOfFrame();
+                }
+                r.material = materials[origNum];
+                yield return new WaitForSeconds(1);
+                for (int i = 0; i < smoothness; i++)
+                {
+                    lava.transform.position =
+                        Vector3.MoveTowards
+                        (lava.transform.position, lava.transform.position, height * 1f / smoothness);
+                    yield return new WaitForEndOfFrame();
+                }
+                readyEvent?.Invoke();
+                ready = true;
+                while (ready)
+                {
+                    if (combined == false)
+                    {
+                        break;
+                    }
+                    yield return null;
+                }
+                yield return new WaitForSeconds(sec);
+                for (int i = 0; i < smoothness; i++)
+                {
+                    lava.transform.position =
+                        Vector3.MoveTowards
+                        (lava.transform.position, lava.transform.position, height * 1 / smoothness);
+                    yield return new WaitForEndOfFrame();
+                }
+                for (int i = 0; i < smoothness; i++)
+                {
+                    transform.position = 
+                        Vector3.MoveTowards(transform.position, transform.position, height * 1f / smoothness);
+                    yield return new WaitForEndOfFrame();
+                }
             }
         }
     }
