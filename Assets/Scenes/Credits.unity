@@ -318,7 +318,19 @@ MonoBehaviour:
     Dungeon Mason - Character
     Art
 
-    Lowly Poly - Gemstone Art'
+    Lowly Poly - Gemstone Art
+
+    Lumo-Art 3D - Tile Textures
+
+    Aparico
+    Silva - Stalactite Art
+
+    @PaulosCreations - Portal Art
+
+    Rob luo - Lava
+    Art
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -346,8 +358,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -384,7 +396,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: -143.75052}
+  m_margin: {x: 0, y: -1.6321563, z: 0, w: -143.75052}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

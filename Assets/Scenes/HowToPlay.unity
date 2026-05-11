@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eab8d4f1222e764ab99da2c108a7aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneNum: 2
+  sceneNum: 11
 --- !u!1 &187901012
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,11 +329,11 @@ MonoBehaviour:
     the door before the timer in the top left corner of the screen runs out!
 
     If
-    the ground turns blue, make sure you are standing on the blue ground, as it will
-    raise up and protect you from lava.
+    the ground turns green, make sure you are standing on the green ground, as it
+    will raise up and protect you from lava.
 
-    If the ground turns yellow, avoid standing
-    on the yellow ground, as that is where stalactites are about to fall.
+    If the ground turns red, avoid
+    standing on the red ground, as that is where stalactites are about to fall.
 
     Make
     sure to collect all the purple gemstones before going to the door, or you won''t
@@ -347,8 +347,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278255612
-  m_fontColor: {r: 0.9898696, g: 1, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1092,8 +1092,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278255612
-  m_fontColor: {r: 0.9882353, g: 1, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

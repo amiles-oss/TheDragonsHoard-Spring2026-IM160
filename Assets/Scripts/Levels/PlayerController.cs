@@ -12,6 +12,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float playerSpeed;
+    [SerializeField] private Animator walk;
     private InputAction move;
     private Rigidbody rb;
     private Vector3 playerMovement;
@@ -36,6 +37,10 @@ public class PlayerController : MonoBehaviour
     {
         playerMovement.x = -obj.ReadValue<Vector2>().y * playerSpeed;
         playerMovement.z = obj.ReadValue<Vector2>().x * playerSpeed;
+        if (walk != null)
+        {
+            walk.SetBool("Walk", true);
+        }
     }
 
     /// <summary>
@@ -45,6 +50,10 @@ public class PlayerController : MonoBehaviour
     private void MoveCanceled(InputAction.CallbackContext obj)
     {
         playerMovement = Vector3.zero;
+        if (walk != null)
+        {
+            walk.SetBool("Walk", false);
+        }
     }
 
     /// <summary>
@@ -53,5 +62,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         rb.linearVelocity = new Vector3(playerMovement.x, rb.linearVelocity.y, playerMovement.z);
+        if (playerMovement != Vector3.zero)
+        {
+            Vector3 direction = new Vector3(playerMovement.z, 0, -playerMovement.x);
+            transform.forward = direction; //Vector3.MoveTowards(transform.forward, direction.normalized, 1);
+        }
     }
 }
