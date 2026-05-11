@@ -130,7 +130,7 @@ MonoBehaviour:
   combined: 0
   r: {fileID: 4335473357013574536}
   lava: {fileID: 0}
-  smoothness: 6
+  smoothness: 50
   gemSpot: 0
 --- !u!114 &3438438977510142188
 MonoBehaviour:

@@ -101,17 +101,6 @@ public class StoneController : MonoBehaviour
                         Vector3.MoveTowards(lava.transform.position, lpos, height * 1f / smoothness);
                     yield return new WaitForEndOfFrame();
                 }
-                readyEvent?.Invoke();
-                ready = true;
-                while (ready)
-                {
-                    Debug.Log("While Ready");
-                    if (combined == false)
-                    {
-                        break;
-                    }
-                    yield return null;
-                }
                 yield return new WaitForSeconds(sec);
                 //Returns lava and tiles to their original positions
                 for (int i = 0; i < smoothness; i++)
@@ -124,6 +113,17 @@ public class StoneController : MonoBehaviour
                 {
                     transform.position = Vector3.MoveTowards(transform.position, origPos, height * 1f / smoothness);
                     yield return new WaitForEndOfFrame();
+                }
+                readyEvent?.Invoke();
+                ready = true;
+                while (ready)
+                {
+                    Debug.Log("While Ready");
+                    if (combined == false)
+                    {
+                        break;
+                    }
+                    yield return null;
                 }
             }
             else
@@ -146,16 +146,6 @@ public class StoneController : MonoBehaviour
                         (lava.transform.position, lava.transform.position, height * 1f / smoothness);
                     yield return new WaitForEndOfFrame();
                 }
-                readyEvent?.Invoke();
-                ready = true;
-                while (ready)
-                {
-                    if (combined == false)
-                    {
-                        break;
-                    }
-                    yield return null;
-                }
                 yield return new WaitForSeconds(sec);
                 for (int i = 0; i < smoothness; i++)
                 {
@@ -169,6 +159,16 @@ public class StoneController : MonoBehaviour
                     transform.position = 
                         Vector3.MoveTowards(transform.position, transform.position, height * 1f / smoothness);
                     yield return new WaitForEndOfFrame();
+                }
+                readyEvent?.Invoke();
+                ready = true;
+                while (ready)
+                {
+                    if (combined == false)
+                    {
+                        break;
+                    }
+                    yield return null;
                 }
             }
         }
